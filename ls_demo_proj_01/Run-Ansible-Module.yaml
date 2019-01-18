@@ -1,0 +1,30 @@
+- defaultTab: summary
+  description: Run-Ansible-Module (DEMO)
+  executionEnabled: true
+  id: 4f4e31e1-0991-4423-9689-8320d2362e05
+  loglevel: INFO
+  name: Run-Ansible-Module
+  nodeFilterEditable: false
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: 'distribution: Ubuntu'
+  nodesSelectedByDefault: true
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        ansible-become: 'false'
+        ansible-module: ping
+        ansible-ssh-auth-type: privateKey
+        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa
+        ansible-ssh-user: ansible
+      nodeStep: false
+      type: com.batix.rundeck.plugins.AnsibleModuleWorkflowStep
+    keepgoing: false
+    strategy: node-first
+  uuid: 4f4e31e1-0991-4423-9689-8320d2362e05
