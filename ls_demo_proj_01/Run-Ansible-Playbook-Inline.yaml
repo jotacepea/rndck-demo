@@ -1,0 +1,35 @@
+- defaultTab: summary
+  description: Run-Ansible-Playbook-Inline (DEMO)
+  executionEnabled: true
+  id: 74eb8552-a86a-49b4-b396-a7768ab6cfa6
+  loglevel: INFO
+  name: Run-Ansible-Playbook-Inline
+  nodeFilterEditable: true
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: 'tags: key_JC_Demo'
+  nodesSelectedByDefault: true
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        ansible-become: 'false'
+        ansible-playbook-inline: |-
+          ---
+          - hosts: all
+            tasks:
+              - name: test connection
+                ping:
+        ansible-ssh-auth-type: privateKey
+        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa_ansible
+        ansible-ssh-user: ec2-user
+      nodeStep: true
+      type: com.batix.rundeck.plugins.AnsiblePlaybookInlineWorkflowNodeStep
+    keepgoing: false
+    strategy: node-first
+  uuid: 74eb8552-a86a-49b4-b396-a7768ab6cfa6
