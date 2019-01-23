@@ -12,7 +12,7 @@
       rankOrder: ascending
       successOnEmptyNodeFilter: false
       threadcount: '1'
-    filter: 'distribution: Ubuntu'
+    filter: 'tags: key_JC_Demo'
   nodesSelectedByDefault: true
   scheduleEnabled: true
   sequence:
@@ -21,8 +21,8 @@
         ansible-become: 'false'
         ansible-module: ping
         ansible-ssh-auth-type: privateKey
-        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa
-        ansible-ssh-user: ansible
+        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa_ansible
+        ansible-ssh-user: ec2-user
       nodeStep: false
       type: com.batix.rundeck.plugins.AnsibleModuleWorkflowStep
     keepgoing: false
