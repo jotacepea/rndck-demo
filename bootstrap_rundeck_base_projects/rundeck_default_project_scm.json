@@ -1,0 +1,17 @@
+{
+   "config":{
+      "url":"https://github.com/jotacepea/rndck-demo.git",
+      "fetchAutomatically":"true",
+      "pullAutomatically":"true",
+      "dir":"THEPROJECTBASEDIRNAME/scm",
+      "filePattern":"rdk_projects/THEPROJECTNAME/.*\\.yaml",
+      "importUuidBehavior":"archive",
+      "useFilePattern":"true",
+      "strictHostKeyChecking":"yes",
+      "sshPrivateKeyPath":"",
+      "format":"yaml",
+      "branch":"master",
+      "gitPasswordPath":"",
+      "pathTemplate":"${job.group}${job.name}-${job.sourceId}.${config.format}"
+   }
+}
