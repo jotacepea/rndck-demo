@@ -1,0 +1,32 @@
+- defaultTab: summary
+  description: Run-Ansible-Playbook-File (DEMO)
+  executionEnabled: true
+  id: 6ed415bf-e0ef-4dd0-a8c7-1f236f0d8000
+  loglevel: INFO
+  name: Run-Ansible-Playbook-File
+  nodeFilterEditable: true
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: 'tags: key_JC_Demo'
+  nodesSelectedByDefault: true
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        ansible-base-dir-path: /var/rundeck/projects/ls_demo_proj_01/scm/ansible_play/
+        ansible-become: 'false'
+        ansible-disable-limit: 'false'
+        ansible-playbook: demo_motd_playbook.yml
+        ansible-ssh-auth-type: privateKey
+        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa_ansible
+        ansible-ssh-user: ec2-user
+      nodeStep: false
+      type: com.batix.rundeck.plugins.AnsiblePlaybookWorkflowStep
+    keepgoing: false
+    strategy: node-first
+  uuid: 6ed415bf-e0ef-4dd0-a8c7-1f236f0d8000
