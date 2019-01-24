@@ -1,0 +1,47 @@
+- defaultTab: summary
+  description: Bootstrap And Update Base Projects (Demo)
+  executionEnabled: true
+  id: 4b79348b-81a8-4c0f-922f-f2341495687e
+  loglevel: INFO
+  name: Bootstrap_And_Update_Base_Projects
+  nodeFilterEditable: false
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - script: |
+        #!/bin/bash
+
+        env
+
+        echo
+        echo ------
+        echo
+
+        echo ${RD_JOB_PROJECT}
+
+        export rd_projects_path="/var/rundeck/projects"
+
+        export rd_scm_project_path="${rd_projects_path}/${RD_JOB_PROJECT}/scm"
+
+        echo ${rd_scm_project_path}
+
+        cd ${rd_scm_project_path}/bootstrap_rundeck_base_projects
+
+        # Get the list of projects
+        ls -d ${rd_scm_project_path}/rdk_projects/* | \
+        xargs -n 1 basename | \
+        grep -v ${RD_JOB_PROJECT} > rundeck_proj_list.txt
+
+        cat rundeck_proj_list.txt
+
+        ./bootstrap_base_projects.sh
+
+        echo "---" > rundeck_proj_list.txt
+    keepgoing: false
+    pluginConfig:
+      LogFilter:
+      - config:
+          replacement: '[SECURE]'
+        type: mask-passwords
+    strategy: node-first
+  uuid: 4b79348b-81a8-4c0f-922f-f2341495687e
