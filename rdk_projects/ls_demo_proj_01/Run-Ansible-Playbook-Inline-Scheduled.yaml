@@ -1,0 +1,44 @@
+- defaultTab: summary
+  description: Run-Ansible-Playbook-Inline-Scheduled (DEMO)
+  executionEnabled: true
+  id: 9443f528-288c-43a8-87bc-b48fbf466901
+  loglevel: INFO
+  name: Run-Ansible-Playbook-Inline-Scheduled
+  nodeFilterEditable: true
+  nodefilters:
+    dispatch:
+      excludePrecedence: true
+      keepgoing: false
+      rankOrder: ascending
+      successOnEmptyNodeFilter: false
+      threadcount: '1'
+    filter: 'tags: tag_Name_rundeck_demo_minion_001'
+  nodesSelectedByDefault: true
+  schedule:
+    time:
+      hour: '*'
+      minute: '*/5'
+      seconds: '0'
+    weekday:
+      day: '*'
+    month: '*'
+    year: '*'
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        ansible-become: 'false'
+        ansible-playbook-inline: |-
+          ---
+          - hosts: all
+            tasks:
+              - name: test connection
+                ping:
+        ansible-ssh-auth-type: privateKey
+        ansible-ssh-keypath: /var/lib/rundeck/.ssh/id_rsa_ansible
+        ansible-ssh-user: ec2-user
+      nodeStep: true
+      type: com.batix.rundeck.plugins.AnsiblePlaybookInlineWorkflowNodeStep
+    keepgoing: false
+    strategy: node-first
+  uuid: 9443f528-288c-43a8-87bc-b48fbf466901
