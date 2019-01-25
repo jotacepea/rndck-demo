@@ -40,9 +40,8 @@
         ls -d ${rd_scm_project_path}/rdk_projects/* | \
         xargs -n 1 basename | \
         grep -v ${RD_JOB_PROJECT} > rundeck_proj_list.txt
-
         cat rundeck_proj_list.txt
-
+        chmod +x ./bootstrap_base_projects.sh
         ./bootstrap_base_projects.sh
 
         echo "---" > rundeck_proj_list.txt
