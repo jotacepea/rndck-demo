@@ -5,6 +5,15 @@
   loglevel: INFO
   name: Bootstrap_And_Update_Base_Projects
   nodeFilterEditable: false
+  schedule:
+    time:
+      hour: '*'
+      minute: '*/5'
+      seconds: '0'
+    weekday:
+      day: '*'
+    month: '*'
+    year: '*'
   scheduleEnabled: true
   sequence:
     commands:
