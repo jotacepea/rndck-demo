@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export RD_URL="http://localhost:4440/api/28"
+export RD_URL="http://localhost:4440/"
 export RD_INSECURE_SSL=true
 
 export RD_DEBUG=3
@@ -23,5 +23,7 @@ for R_PROJ_NAME in $(grep -v "#" ./rundeck_proj_list.txt); do
   rd projects create -p ${R_PROJ_NAME}
   rd projects configure update -f rundeck_default_project_conf.properties -p ${R_PROJ_NAME}
   rd projects scm setup -f rundeck_default_project_scm_${R_PROJ_NAME}.json -i import -t git-import -p ${R_PROJ_NAME}
-
+  sleep 1
+  rd projects scm perform -i import -p ${R_PROJ_NAME} --action import-all --allitems
+  
 done
