@@ -15,13 +15,13 @@
     filter: 'tags: tag_Name_rundeck_demo_minion_001'
   nodesSelectedByDefault: true
   schedule:
+    month: '*'
     time:
       hour: '*'
       minute: '*/5'
       seconds: '0'
     weekday:
       day: '*'
-    month: '*'
     year: '*'
   scheduleEnabled: true
   sequence:
