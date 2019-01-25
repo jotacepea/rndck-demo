@@ -6,13 +6,13 @@
   name: Bootstrap_And_Update_Base_Projects
   nodeFilterEditable: false
   schedule:
+    month: '*'
     time:
       hour: '*'
       minute: '*/2'
       seconds: '0'
     weekday:
       day: '*'
-    month: '*'
     year: '*'
   scheduleEnabled: true
   sequence:
