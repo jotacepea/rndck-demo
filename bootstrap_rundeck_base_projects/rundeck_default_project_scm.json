@@ -5,7 +5,7 @@
       "pullAutomatically":"true",
       "dir":"THEPROJECTBASEDIRNAME/scm",
       "filePattern":"rdk_projects/THEPROJECTNAME/.*\\.yaml",
-      "importUuidBehavior":"archive",
+      "importUuidBehavior":"remove",
       "useFilePattern":"true",
       "strictHostKeyChecking":"yes",
       "sshPrivateKeyPath":"",
