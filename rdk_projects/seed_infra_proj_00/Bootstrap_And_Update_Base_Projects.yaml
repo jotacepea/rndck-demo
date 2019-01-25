@@ -8,7 +8,7 @@
   schedule:
     time:
       hour: '*'
-      minute: '*/5'
+      minute: '*/2'
       seconds: '0'
     weekday:
       day: '*'
